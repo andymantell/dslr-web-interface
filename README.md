@@ -3,6 +3,7 @@ Web interface for DSLRs. Powered by gphoto2. Intended to run on a Raspberry Pi.
 
 ## Install
 `sudo apt-get install gphoto2`
+
 `npm install`
 
 ## Usage
