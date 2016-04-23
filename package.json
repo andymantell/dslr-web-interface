@@ -4,8 +4,7 @@
   "description": "Web interface for DSLRs. Powered by gphoto2. Intended to run on a Raspberry Pi.",
   "main": "index.js",
   "scripts": {
-    "start": "supervisor -i node_modules app/app.js",
-    "timelapse": "supervisor -i node_modules app/timelapse.js",
+    "start": "node app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +19,6 @@
   "homepage": "https://github.com/andymantell/dslr-web-interface#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "express-handlebars": "^3.0.0",
-    "mkdirp": "^0.5.1"
+    "express-handlebars": "^3.0.0"
   }
 }

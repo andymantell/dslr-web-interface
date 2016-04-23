@@ -16,6 +16,8 @@ app.set('view engine', '.hbs');
 
 app.use("/", require('./routes'));
 app.use('/assets', express.static('./app/assets'));
+app.use('/images', express.static('./images'));
+app.use('/thumbs', express.static('./thumbs'));
 
 app.listen(3000, function () {
   console.log('Listening on port 3000!');

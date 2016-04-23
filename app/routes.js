@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var glob = require('glob');
+var path = require('path');
+
+var timelapse = require('./timelapse');
 
 router.get('/', function (req, res) {
   res.render('index');
+});
+
+router.get('/timelapse', function (req, res) {
+  res.render('timelapse');
 });
 
 router.use('/shot', express.static('./capt0000.jpg'));
@@ -26,6 +34,38 @@ router.get('/take-shot', function(req, res) {
 
   });
 
+});
+
+
+
+
+
+
+
+router.get('/start-timelapse', function(req, res) {
+  if(!timelapse.isRunning()) {
+    timelapse.start();
+    res.json({'status': 'timelapse started'});
+  }
+});
+
+router.get('/stop-timelapse', function(req, res) {
+  timelapse.stop();
+  res.json({'status': 'timelapse stopped'});
+});
+
+router.get('/list-timelapse', function(req, res) {
+  glob('thumbs/**/*.jpg', function(err, files) {
+    if(err) {
+      throw err;
+    }
+
+    files.forEach(function(filename, index) {
+      files[index] = path.relative('.', filename);
+    });
+
+    res.json(files);
+  })
 });
 
 module.exports = router;

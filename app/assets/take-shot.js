@@ -1,25 +1,29 @@
 var takeShot = document.getElementById('take-shot');
 var shot = document.createElement('img');
 
-takeShot.addEventListener('click', function(e) {
-  takeShot.disabled = true;
+if(takeShot) {
 
-  fetch('/take-shot')
-    .then(function(response) {
-      response.json().then(function(json) {
-        console.log(json);
+  takeShot.addEventListener('click', function(e) {
+    takeShot.disabled = true;
 
-        takeShot.disabled = false;
+    fetch('/take-shot')
+      .then(function(response) {
+        response.json().then(function(json) {
+          console.log(json);
 
-        if(shot.parentNode) {
-          shot.parentNode.removeChild(shot);
-        }
+          takeShot.disabled = false;
 
-        if(!json.error) {
-          shot.src = '/shot?' + Date.now();
+          if(shot.parentNode) {
+            shot.parentNode.removeChild(shot);
+          }
 
-          takeShot.parentNode.appendChild(shot);
-        }
+          if(!json.error) {
+            shot.src = '/shot?' + Date.now();
+
+            takeShot.parentNode.appendChild(shot);
+          }
+        })
       })
-    })
-});
+  });
+
+}
