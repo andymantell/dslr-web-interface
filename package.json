@@ -1,0 +1,19 @@
+{
+  "name": "dslr-web-interface",
+  "version": "1.0.0",
+  "description": "Web interface for DSLRs. Powered by gphoto2. Intended to run on a Raspberry Pi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andymantell/dslr-web-interface.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andymantell/dslr-web-interface/issues"
+  },
+  "homepage": "https://github.com/andymantell/dslr-web-interface#readme"
+}
