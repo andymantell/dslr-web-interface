@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "supervisor -i node_modules app/app.js",
+    "timelapse": "supervisor -i node_modules app/timelapse.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/andymantell/dslr-web-interface#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "mkdirp": "^0.5.1"
   }
 }
